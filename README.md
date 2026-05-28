@@ -79,7 +79,7 @@ This project replicates and extends that inquiry using PostgreSQL, exploring how
 
   Running the core query on international students, depression scores increase from year one through year three, then drop at year four. One plausible explanation is that year four students are nearing program completion and anticipating return home; an idea which is further supported by a decrease in social connectedness scores and increase in acculturative stress scores in the same year, potentially due to students beginning to mentally disengage from academic stress, new friends, and local customs. That said, this remains speculative given the lack of repeat surveys on individuals over time.
 
-  Years five and above have one international participant each with year six being an outlier with 3, making trend analysis unreliable. To illustrate this, I modeled a forecast in <code>qaresults.xlsx</code> using two approaches: one using all available data forecasting to year 15, and one forecasting years five and six based only on years one through four. The constrained forecast predicted a year six PHQ-9 of 9.59 where the the actual year six participants averaged 6.00.
+  Years five and above have one international participant each with year six being an outlier with 3, making trend analysis unreliable. To illustrate this, I modeled a forecast in <code>qaresults.xlsx</code> using two approaches: one using all available data forecasting to year 15, and one forecasting years five and six based only on years one through four. The constrained forecast predicted a year six PHQ-9 of 9.59 where the actual year six participants averaged 6.00.
 
   <h3>International vs. Domestic Comparison</h3>
 
