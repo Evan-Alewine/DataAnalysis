@@ -249,8 +249,13 @@ This project locally replicates and extends that exercise, uncovering how small 
         ORDER BY stay;
   ```
   </details>
-  
-At this point occurred to me that the domestic PHQ-9 scores seem to be slightly higher than the international ones, directly contradicting the implied claim that international students are at higher risk than domestic ones. So, I created another table to compare their average scores directly.
+Looking closer at that table, the last five rows describe almost nobody. Years 7, 8, and 10 contain one student each, year 5 contains one, and year 6 contains three. Year 5 reads 0.00 because a single student scored zero. Those rows carry the same visual weight as year 1 with its 95 students, and any trend drawn through them is being set by individuals.
+
+To show how badly that behaves, I built two forecasts in qaForecast.xlsx. The first projects out to year 15 using every year available. The second projects years 5 and 6 using only years 1 through 4, then compares the prediction against what those years actually contain. The constrained forecast predicted a year 6 average of 9.59. The three students actually in year 6 averaged 6.00, an overshoot of roughly 60%.
+
+The exercise asks for a nine-row table and gets one. Four of those rows are a single respondent.
+
+At this point it occurred to me that the domestic PHQ-9 scores seem to be slightly higher than the international ones, directly contradicting the implied claim that international students are at higher risk than domestic ones. So, I created another table to compare their average scores directly.
 
 <table>
     <tr>
@@ -505,7 +510,7 @@ Sadly the exact process of creating this table was not spelled out, but there wa
   </details>
 
   <details><summary><h3>Solution and Discussion</h3></summary>
-  Both columns, "depsev" and "todep", measures exactly 96 of the 268 students, yet they disagree about which 96.
+  Both columns, "deptype" and "depsev", measures exactly 96 of the 268 students, yet they disagree about which 96.
   
   The original authors describe both procedures in their measures section (Nguyen et al., 2019a). The severity score treats all nine items equally: each is scored from 0 for not at all to 3 for nearly every day, summed to a range of 0 to 27, then banded into minimal, mild, moderate, moderately severe, and severe at cutoffs of 4, 9, 14, and 19. Any combination of symptoms reaching 10 lands in the moderate band.
   
@@ -537,21 +542,20 @@ Sadly the exact process of creating this table was not spelled out, but there wa
   
   "international students have a higher risk of mental health difficulties than the general population" (DataCamp, accessed 2026)
   
-  Each step is defensible on its own. Ibrahim et al.'s citation compares university students to the general public and never separate international from domestic. Nguyen et al. repeat that correctly, then add their own finding about international students relative to domestic ones. The dataset's abstract compresses both into a single sentence. The exercise credits the result to one study, drops the qualifier, and hands the learner a column that returns the opposite direction.
+  Each step is defensible on its own. Ibrahim et al.'s citation compares university students to the general public and never separates international from domestic. Nguyen et al. repeat that correctly, then add their own finding about international students relative to domestic ones. The dataset's abstract compresses both into a single sentence. The exercise credits the result to one study, drops the qualifier, and hands the learner a column that returns the opposite direction.
   
   While the claims are not false anywhere in the citation chain, each citation loses a little bit of nuance leading to misleading claims, especially in later contexts. Combining the two studies, international students at this university are more depressed than the general population, but so are the domestic students sitting next to them. The claim is true of both groups and distinguishes neither, and the single depression score the exercise points to cannot reproduce it.
-  
+```  
   <h3>Project Files</h3>
     ├── README.md
     ├── analysis.sql                   # All queries with inline commentary
     ├── createTable.py                 # Python script to load CSV into PostgreSQL
     ├── qa.sql                         # SQL file of completed Data Camp Project
     ├── qaForecast.xlsx                # Forecast comparison and QA validation
-    ├── qaresults.csv                  # CSV export of qa.sql
     ├── t-Test.xlsx                    # Welch's t-test and chi-square test
     └── studentSurveyData.csv          # Source data
   <h3>References</h3>
-  
+```  
   DataCamp. Analyzing Students' Mental Health [bonus project, SQL Fundamentals track]. Accessed 2026.
   
   Ibrahim, A. K., Kelly, S. J., Adams, C. E., & Glazebrook, C. (2013). A systematic review of studies of depression prevalence in university students. Journal of Psychiatric Research, 47(3), 391–400. https://doi.org/10.1016/j.jpsychires.2012.11.015
