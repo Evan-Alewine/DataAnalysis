@@ -325,7 +325,7 @@ SELECT inter_dom,
        COUNT(*)                                        AS n,
        COUNT(*) FILTER (WHERE todep >= 10)             AS mod_or_greater,
        ROUND(100.0 * COUNT(*) FILTER (WHERE todep >= 10)
-             / COUNT(*), 2)                            AS %
+             / COUNT(*), 2)                            AS "%"
 FROM students
 WHERE inter_dom IN ('Inter', 'Dom')
   AND stay IS NOT NULL
@@ -464,7 +464,7 @@ Sadly the exact process of creating this table was not spelled out, but there wa
            COUNT(*)                                                     AS n,
            COUNT(*) FILTER (WHERE deptype IN ('Major', 'Other'))        AS deptype,
            ROUND(100.0 * COUNT(*) FILTER (WHERE deptype IN ('Major', 'Other'))
-                 / COUNT(*), 2)                                         AS %
+                 / COUNT(*), 2)                                         AS "%"
     FROM students
     WHERE inter_dom IN ('Inter', 'Dom')
       AND stay IS NOT NULL
