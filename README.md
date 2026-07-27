@@ -545,8 +545,10 @@ Sadly the exact process of creating this table was not spelled out, but there wa
   Each step is defensible on its own. Ibrahim et al.'s citation compares university students to the general public and never separates international from domestic. Nguyen et al. repeat that correctly, then add their own finding about international students relative to domestic ones. The dataset's abstract compresses both into a single sentence. The exercise credits the result to one study, drops the qualifier, and hands the learner a column that returns the opposite direction.
   
   While the claims are not false anywhere in the citation chain, each citation loses a little bit of nuance leading to misleading claims, especially in later contexts. Combining the two studies, international students at this university are more depressed than the general population, but so are the domestic students sitting next to them. The claim is true of both groups and distinguishes neither, and the single depression score the exercise points to cannot reproduce it.
-```  
-  <h3>Project Files</h3>
+    
+<h3>Project Files</h3>
+
+```
     ├── README.md
     ├── analysis.sql                   # All queries with inline commentary
     ├── createTable.py                 # Python script to load CSV into PostgreSQL
@@ -554,8 +556,8 @@ Sadly the exact process of creating this table was not spelled out, but there wa
     ├── qaForecast.xlsx                # Forecast comparison and QA validation
     ├── t-Test.xlsx                    # Welch's t-test and chi-square test
     └── studentSurveyData.csv          # Source data
+```
   <h3>References</h3>
-```  
   DataCamp. Analyzing Students' Mental Health [bonus project, SQL Fundamentals track]. Accessed 2026.
   
   Ibrahim, A. K., Kelly, S. J., Adams, C. E., & Glazebrook, C. (2013). A systematic review of studies of depression prevalence in university students. Journal of Psychiatric Research, 47(3), 391–400. https://doi.org/10.1016/j.jpsychires.2012.11.015
