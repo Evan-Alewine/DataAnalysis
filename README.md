@@ -1,4 +1,4 @@
-<img width="65" height="21" alt="image" src="https://github.com/user-attachments/assets/21a9e626-6f28-43ce-aad8-04edbe19cae0" /># Data Analysis Projects
+# Data Analysis Projects
 A showcase of different Data Analysis Projects
 
 ---
