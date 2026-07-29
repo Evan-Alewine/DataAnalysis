@@ -28,6 +28,9 @@ This project locally replicates and extends that exercise, uncovering how small 
   </tbody>
 </table>
 
+## Application to Industry
+The problems in this project are the ones that break organizational survey work. A single construct can be defined several defensible ways that disagree. Departments of unequal headcount get compared by raw counts, and a finding gets re-summarized at each level of reporting until the version leadership acts on no longer resembles the data.
+
 <details>
   <summary><h1>Full Walkthrough</h1></summary>
 
