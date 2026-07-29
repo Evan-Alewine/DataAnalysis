@@ -124,7 +124,7 @@ This project locally replicates and extends that exercise, uncovering how small 
       ORDER BY stay DESC;
   ```
  </details>
-  The initial dataset and exercise solution can also be found in the `qa.sql`, `qaresults.csv` files.
+  The initial dataset and exercise solution can also be found in the `qa.sql`, `qaForecast.xlxs` files.
   Breaking down the results table, we see that it shows the survey responses of international students by year, the number of students in that year, followed by three scores that serve as outcome variables.
   <table>
     <tbody>
@@ -253,6 +253,8 @@ Looking closer at that table, the last five rows describe almost nobody. Years 7
 
 To show how badly that behaves, I built two forecasts in qaForecast.xlsx. The first projects out to year 15 using every year available. The second projects years 5 and 6 using only years 1 through 4, then compares the prediction against what those years actually contain. The constrained forecast predicted a year 6 average of 9.59. The three students actually in year 6 averaged 6.00, an overshoot of roughly 60%.
 
+<img width="863" height="532" alt="forecast graph" src="https://github.com/user-attachments/assets/7d315e5b-26b2-4125-b54b-48ce43b31d19" />
+
 The exercise asks for a nine-row table and gets one. Four of those rows are a single respondent.
 
 At this point it occurred to me that the domestic PHQ-9 scores seem to be slightly higher than the international ones, directly contradicting the implied claim that international students are at higher risk than domestic ones. So, I created another table to compare their average scores directly.
@@ -299,7 +301,7 @@ WHERE inter_dom IN ('Inter', 'Dom')
 GROUP BY inter_dom;
 ```
 </details>
-This table clearly showed that domestic students had a mean PHQ-9 score .57 points higher than the international students on a 27 point scale. Yet that small of a gap is not statistically significant, verified Welch's t-Test found in `t-Test.xlsx` using Excel's Analysis ToolPak. 
+This table clearly showed that domestic students had a mean PHQ-9 score .57 points higher than the international students on a 27 point scale. Yet that small of a gap is not statistically significant, verified by a t-Test found in `t-Test.xlsx` using Excel's Analysis ToolPak. 
 
 So if the average PHQ-9 was not higher, it may be that the authors meant frequency. Given that the PHQ-9 is typically scored in bands, seen [here](https://phq-9.org/blog/phq-9-score-guide-understanding-your-depression-score) I set the cutoff at 10 points indicating "moderate levels of depression". 
 <table>
@@ -337,7 +339,7 @@ WHERE inter_dom IN ('Inter', 'Dom')
 GROUP BY inter_dom;
   ```
 </details>
-When we look at quantity of students with PHQ-9 scores >= 10, it seems that international students out number domestic students nearly 2.5:1. However, that does not account for the sample size difference between the two groups. When expressed as a percentage to show frequency of higher PHQ-9 scores, we see that domestic students actually show a higher frequency than international students.
+When we look at quantity of students with PHQ-9 scores >= 10, it seems that moderately depressed international students out number domestic students nearly 2.5:1. However, that does not account for the sample size difference between the two groups. When expressed as a percentage to show frequency of higher PHQ-9 scores, we see that domestic students actually show a higher frequency than international students.
 
 To verify, I ran a chi-square test of independence on the counts, also included in `t-Test.xlsx`. The observed values against those expected if the two groups behaved identically:
 
@@ -432,7 +434,7 @@ At this point, we have two indicators that domestic students are at higher risk 
 
 As a part of our `t-Test.xlsx` we found our <strong>p-value</strong> in cell B12, which asks if there really is a difference in two sets of data. Typically, a p-value of 0.05 is used to justify distinguishing two groups, meaning our value of .43 is far too large to say our international and domestic student groups are meaningfully different enough to be separated.
 
-In plain terms, the study's domestic students are no worse off than the international ones. Neither the severity nor the frequency gap was large enough to show anything conclusively. That returns us to the argument made at the top of this section: if both groups score about the same, then whatever elevated risk exists belongs to students generally, not to international students specifically.
+In plain terms, neither the severity nor the frequency gap was large enough to show anything conclusively. That returns us to the argument made at the top of this section: if both groups score about the same, then whatever elevated risk exists belongs to students generally, not to international students specifically.
 
 Yet, searching the university's name alongside some key words turned up the open access data set found [here](https://www.mdpi.com/2306-5729/4/3/124). While reviewing the dataset's publication (Nguyen et al., 2019b) I found the original study that the data was produced for (Nguyen et al., 2019a). In that study the authors produced a table showing the prevalence of depression, showing that international students have higher rates of depression by almost 8%.
 
@@ -510,7 +512,7 @@ Sadly the exact process of creating this table was not spelled out, but there wa
   </details>
 
   <details><summary><h3>Solution and Discussion</h3></summary>
-  Both columns, "deptype" and "depsev", measures exactly 96 of the 268 students, yet they disagree about which 96.
+  Both columns, "deptype" and "depsev", measure exactly 96 of the 268 students, yet they disagree about which 96.
   
   The original authors describe both procedures in their measures section (Nguyen et al., 2019a). The severity score treats all nine items equally: each is scored from 0 for not at all to 3 for nearly every day, summed to a range of 0 to 27, then banded into minimal, mild, moderate, moderately severe, and severe at cutoffs of 4, 9, 14, and 19. Any combination of symptoms reaching 10 lands in the moderate band.
   
